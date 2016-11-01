@@ -1,53 +1,14 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
+ * Lexington Traffic Cameras iOS App
  */
 
 import React, { Component } from 'react';
 import {
   AppRegistry,
-  StyleSheet,
-  Text,
-  View
 } from 'react-native';
 
-export default class LexingtonTrafficCameras extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-      </View>
-    );
-  }
-}
+import HomeScene from './views/home'
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+'use strict';
 
-AppRegistry.registerComponent('LexingtonTrafficCameras', () => LexingtonTrafficCameras);
+AppRegistry.registerComponent('Lexington Traffic-Cameras', () => HomeScene)
