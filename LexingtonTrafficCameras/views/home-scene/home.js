@@ -5,13 +5,11 @@
 import React from 'react';
 import {
   ListView,
-  Navigator,
-  StyleSheet,
-  Text,
-  View
+  ScrollView
 } from 'react-native'
 
-import cameraList from '../data/cameras.json'
+import CameraList from '../../data/cameras.json'
+import TrafficCameraListItem from './traffic-camera-list-item'
 
 const Dimensions = require('Dimensions')
 let Viewport = Dimensions.get('window')
@@ -22,17 +20,17 @@ export default class HomeScene extends React.Component {
     super(props);
     const ds = new ListView.DataSource({rowHasChanged: (row1, row2) => row1 != row2});
     this.state = {
-      dataSource: ds.cloneWithRows(cameraList)
+      dataSource: ds.cloneWithRows(CameraList)
     };
   }
   render() {
     return (
-      <View style = {{flex: 1, paddingTop: 22}}>
+      <ScrollView>
         <ListView
           dataSource = {this.state.dataSource}
-          renderRow = {(rowData) => <Text>{rowData.description}</Text>}
+          renderRow = {(trafficCameraData) => <TrafficCameraListItem {...trafficCameraData} />}
         />
-      </View>
+      </ScrollView>
     );
   }
 }

@@ -7,8 +7,8 @@ import {
   AppRegistry,
 } from 'react-native';
 
-import HomeScene from './views/home'
+import HomeScene from './views/home-scene/home'
 
 'use strict';
 
-AppRegistry.registerComponent('Lexington Traffic-Cameras', () => HomeScene)
+AppRegistry.registerComponent('LexingtonTrafficCameras', () => HomeScene)
