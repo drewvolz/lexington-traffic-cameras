@@ -19,6 +19,7 @@ export default class CamerasDetailView extends Component {
     this.onLoad = this.onLoad.bind(this)
     this.hls = props.item.hls
   }
+
   state = {
     rate: 1,
     muted: false,
