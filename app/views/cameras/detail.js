@@ -24,11 +24,22 @@ export default class CamerasDetailView extends Component {
     rate: 1,
     muted: false,
     resizeMode: 'contain',
+    paused: false,
     duration: 0.0,
+    fullscreen: true,
   }
 
   onLoad(data) {
     this.setState({duration: data.duration})
+  }
+
+   _onLayout = event => {
+    const { width, height } = event.nativeEvent.layout;
+    if (width > height) {
+      this.setState({resizeMode: 'contain'});
+    } else {
+      this.setState({resizeMode: 'stretch'});
+    }
   }
 
   render() {
@@ -36,6 +47,7 @@ export default class CamerasDetailView extends Component {
       <View style={styles.container}>
         <View style={styles.fullScreen}>
           <Video
+            ref={(ref) => {this.player = ref}}
             source={{uri: this.hls}}
             style={styles.nativeVideoControls}
             rate={this.state.rate}
@@ -43,6 +55,7 @@ export default class CamerasDetailView extends Component {
             muted={this.state.muted}
             resizeMode={this.state.resizeMode}
             onLoad={this.onLoad}
+            onLayout={this._onLayout}
             repeat={true}
           />
         </View>
