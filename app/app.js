@@ -126,10 +126,10 @@ function RightButton(route, navigator, index, navState) {
 }
 
 function Title(route) {
-  let divideBy = (route.id !== 'CamerasListView') ? 2.5 : 1
+  let divideBy = route.id !== 'CamerasListView' ? 2.5 : 1
   return (
     <Text
-      style={[styles.titleText, {maxWidth: Dimensions.get('window').width / {divideBy} }]}
+      style={[styles.titleText, {maxWidth: Dimensions.get('window').width / divideBy }]}
       numberOfLines={1}
       ellipsizeMode='tail'
     >
